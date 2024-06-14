@@ -1,4 +1,4 @@
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/saksbrdx/taskify_app/
+    - export DEPLOYPATH=/home/saksbrdx/taskify/
     - /bin/cp -R * $DEPLOYPATH
