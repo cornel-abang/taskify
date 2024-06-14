@@ -1,0 +1,51 @@
+version: "3.8"
+services:
+  taskify_app:
+    container_name: taskify_app
+    build:
+      context: .
+      dockerfile: ./docker/php/Dockerfile
+    expose:
+      - 9000
+    volumes:
+      - .:/usr/src/app
+      - ./public:/usr/src/app/public
+    depends_on:
+      - taskify_db
+    networks:
+      - app_network
+
+  taskify_nginx:
+    container_name: taskify_nginx
+    build:
+      context: .
+      dockerfile: ./docker/nginx/Dockerfile
+    volumes:
+      - ./public:/usr/src/app/public
+    ports:
+      - 8000:80
+    depends_on:
+      - taskify_app
+    environment:
+      NGINX_FPM_HOST: taskify_app
+      NGINX_ROOT: /usr/src/app/public
+    networks:
+      - app_network
+
+  taskify_db:
+    container_name: taskify_db
+    image: postgres:10.1
+    restart: always
+    volumes:
+      - ./storage/db-data:/var/lib/mysql
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_DB: taskify
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    networks:
+      - app_network
+networks:
+  app_network:
+    driver: bridge

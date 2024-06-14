@@ -1,0 +1,75 @@
+.status-tag {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-top: 10px;
+}
+
+.status-tag.completed {
+    background-color: #28a745;
+    color: #fff;
+}
+
+.status-tag.pending {
+    background-color: #ffc107;
+    color: #000;
+}
+
+.task-details {
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #fff;
+    margin-top: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.task-details h2 {
+    margin-top: 0;
+    font-size: 24px;
+    color: #333;
+}
+
+.task-details p {
+    margin: 10px 0;
+    color: #666;
+}
+
+.back-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.back-btn:hover {
+    background-color: #0056b3;
+}
+
+.user-details {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #ddd;
+}
+
+.user-details h3 {
+    margin-top: 0;
+    font-size: 18px;
+    color: #333;
+}
+
+.user-details p {
+    margin: 5px 0;
+    color: #666;
+}
+
+.last-updated {
+    margin-top: 10px;
+    color: #888;
+}
